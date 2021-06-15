@@ -26,7 +26,7 @@ public class FuncionarioServiceTest {
 	@BeforeEach
 	public void setUp() throws Exception {
 		BDDMockito.given(this.funcionarioRepository.save(Mockito.any(Funcionario.class))).willReturn(new Funcionario());
-	//	BDDMockito.given(this.funcionarioRepository.findById(Mockito.anyLong())).thenReturn(new Funcionario());
+	 // BDDMockito.given(this.funcionarioRepository.findById(Mockito.anyLong())).thenReturn(new Funcionario());
 		BDDMockito.given(this.funcionarioRepository.findByEmail(Mockito.anyString())).willReturn(new Funcionario());
 		BDDMockito.given(this.funcionarioRepository.findByCpf(Mockito.anyString())).willReturn(new Funcionario());
 	}
@@ -37,9 +37,8 @@ public class FuncionarioServiceTest {
 		
 		Assertions.assertNotNull(funcionario);
 	}
-	
- /*	problema com funcao thenReturn do BDDMockito para return Optional
-  * @Test
+  
+   /* @Test
 	public void testBuscarFuncionarioPorId() {
 		Optional<Funcionario> funcionario = this.funcionarioService.buscarPorId(1L);
 		
@@ -51,6 +50,7 @@ public class FuncionarioServiceTest {
 		
 		Assertions.assertTrue(funcionario.isPresent());
 	}
+	
 	*/
 	
 	
