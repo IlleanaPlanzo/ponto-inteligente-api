@@ -26,7 +26,7 @@ public class Empresa implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@Column(name = "razao_sozial", nullable = false)
+	@Column(name = "razao_social", nullable = false)
 	private String razaoSocial;
 	
 	@Column(name = "cnpj", nullable = false)
