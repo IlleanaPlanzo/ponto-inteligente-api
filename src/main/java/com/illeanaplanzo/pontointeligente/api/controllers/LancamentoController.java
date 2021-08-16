@@ -36,6 +36,8 @@ import com.illeanaplanzo.pontointeligente.api.enums.TipoEnum;
 import com.illeanaplanzo.pontointeligente.api.response.Response;
 import com.illeanaplanzo.pontointeligente.api.services.FuncionarioService;
 import com.illeanaplanzo.pontointeligente.api.services.LancamentoService;
+
+import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/api/lancamentos")
 @CrossOrigin(origins = "*")
@@ -65,6 +67,7 @@ public class LancamentoController {
 	 * @param dir
 	 * @return ResponseEntity<Response<Page<LancamentoDto>>>
 	 */
+	@ApiOperation(value = "Busca lançamentos de um funcionário por ID")
 	@GetMapping(value = "/funcionario/{funcionarioId}")
 	public ResponseEntity<Response<Page<LancamentoDto>>> listarPorFuncionarioId(
 			@PathVariable("funcionarioId") Long funcionarioId,
@@ -90,6 +93,7 @@ public class LancamentoController {
 	 * @param id
 	 * @return ResponseEntity<Response<LancamentoDto>>
 	 */
+	@ApiOperation(value = "Buscar lancamento por ID")
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Response<LancamentoDto>> listarPorId(@PathVariable("id") Long id) {
 		log.info("Buscando lançamento por ID: {}", id);
@@ -115,8 +119,8 @@ public class LancamentoController {
 	 * @return ResponseEntity<Response<LancamentoDto>> 
 	 * @throws ParseException
 	 */
-	
-	@PostMapping
+	@ApiOperation(value = "Cria lancamento")
+	@PostMapping(value = "/criar")
 	public ResponseEntity<Response<LancamentoDto>> adicionar(@Valid @RequestBody LancamentoDto lancamentoDto,
 			BindingResult result) throws ParseException {
 		log.info("Adicionando lançamento: {}", lancamentoDto.toString());
@@ -143,6 +147,7 @@ public class LancamentoController {
 	 * @return ResponseEntity<Response<LancamentoDto>>
 	 * @throws ParseException
 	 */
+	@ApiOperation(value = "Atualiza lancamento")
 	@PutMapping(value = "/{id}")
 	public ResponseEntity<Response<LancamentoDto>> atualizar(@PathVariable("id") Long id,
 			@Valid @RequestBody LancamentoDto lancamentoDto, BindingResult result) throws ParseException {
@@ -171,6 +176,7 @@ public class LancamentoController {
 	 * @param id
 	 * @return ResponseEntity<Response<String>>
 	 */
+	@ApiOperation(value = "Remove lancamento")
 	@DeleteMapping(value = "/{id}")
 	@PreAuthorize("hasAnyRole('ADMIN')")
 	public ResponseEntity<Response<String>> remover (@PathVariable("id") Long id) {

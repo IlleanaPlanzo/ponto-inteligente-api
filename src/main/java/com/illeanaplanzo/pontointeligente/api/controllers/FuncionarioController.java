@@ -25,6 +25,8 @@ import com.illeanaplanzo.pontointeligente.api.response.Response;
 import com.illeanaplanzo.pontointeligente.api.services.FuncionarioService;
 import com.illeanaplanzo.pontointeligente.api.utils.PasswordUtils;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/api/funcionarios")
 @CrossOrigin(origins ="*")
@@ -47,7 +49,7 @@ public class FuncionarioController {
 	 * @return
 	 * @throws NoSuchAlgorithmException
 	 */
-	
+	@ApiOperation(value = "Altera funcionário por ID")
 	@PutMapping(value = "/{id}")
 	public ResponseEntity<Response<FuncionarioDto>> atualizar(@PathVariable("id") Long id,
 			@Valid @RequestBody FuncionarioDto funcionarioDto, BindingResult result) throws NoSuchAlgorithmException {

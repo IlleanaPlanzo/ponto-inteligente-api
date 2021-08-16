@@ -27,6 +27,9 @@ import com.illeanaplanzo.pontointeligente.api.services.EmpresaService;
 import com.illeanaplanzo.pontointeligente.api.services.FuncionarioService;
 import com.illeanaplanzo.pontointeligente.api.utils.PasswordUtils;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/api/cadastrar-pf")
 @CrossOrigin(origins = "*")
@@ -51,8 +54,8 @@ public class CadastroPFController {
 		 * @throws NoSuchAlgorithmException
 		 */
 	}
-	
-	@PostMapping
+	@ApiOperation(value = "Cadastra nova pessoa física")
+	@PostMapping("/novo")
 	public ResponseEntity<Response<CadastroPFDto>> cadastrar(@Valid @RequestBody CadastroPFDto cadastroPFDto, 
 			BindingResult result) throws NoSuchAlgorithmException {
 		log.info("Cadastrando PF: {}", cadastroPFDto.toString());

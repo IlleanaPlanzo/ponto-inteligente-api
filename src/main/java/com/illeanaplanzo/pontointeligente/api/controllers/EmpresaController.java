@@ -17,6 +17,8 @@ import com.illeanaplanzo.pontointeligente.api.entities.Empresa;
 import com.illeanaplanzo.pontointeligente.api.response.Response;
 import com.illeanaplanzo.pontointeligente.api.services.EmpresaService;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/api/empresas")
 @CrossOrigin(origins = "*")
@@ -36,7 +38,7 @@ public class EmpresaController {
 	 * @param cnpj
 	 * @return ReponseEntity<Response<EmpresaDto>>
 	 */
-	
+	@ApiOperation(value = "Busca empresas por CNPJ")
 	@GetMapping(value = "/cnpj/{cnpj}")
 	public ResponseEntity<Response<EmpresaDto>> buscarPorCnpj(@PathVariable("cnpj") String cnpj) {
 		log.info("Buscando por empresa CNPJ: {}", cnpj);

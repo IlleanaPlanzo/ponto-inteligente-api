@@ -25,6 +25,8 @@ import com.illeanaplanzo.pontointeligente.api.services.EmpresaService;
 import com.illeanaplanzo.pontointeligente.api.services.FuncionarioService;
 import com.illeanaplanzo.pontointeligente.api.utils.PasswordUtils;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/api/cadastrar-pj")
 @CrossOrigin(origins = "*")
@@ -49,7 +51,7 @@ public class CadastroPJController {
 	 * @return ResponseEntity<Response<CadastroPJDto>>
 	 * @throws NoSuchAlgorithmException
 	 */
-	
+	@ApiOperation(value = "Cadastra nova pessoa jurídica")
 	@PostMapping
 	public ResponseEntity<Response<CadastroPJDto>> cadastrar(@Valid @RequestBody CadastroPJDto cadastroPJDto,
 				BindingResult result) throws NoSuchAlgorithmException {
