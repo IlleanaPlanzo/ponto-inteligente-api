@@ -120,7 +120,7 @@ public class LancamentoController {
 	 * @throws ParseException
 	 */
 	@ApiOperation(value = "Cria lancamento")
-	@PostMapping(value = "/criar")
+	@PostMapping
 	public ResponseEntity<Response<LancamentoDto>> adicionar(@Valid @RequestBody LancamentoDto lancamentoDto,
 			BindingResult result) throws ParseException {
 		log.info("Adicionando lançamento: {}", lancamentoDto.toString());
@@ -147,7 +147,7 @@ public class LancamentoController {
 	 * @return ResponseEntity<Response<LancamentoDto>>
 	 * @throws ParseException
 	 */
-	@ApiOperation(value = "Atualiza lancamento")
+	@ApiOperation(value = "Atualiza lancamento por ID")
 	@PutMapping(value = "/{id}")
 	public ResponseEntity<Response<LancamentoDto>> atualizar(@PathVariable("id") Long id,
 			@Valid @RequestBody LancamentoDto lancamentoDto, BindingResult result) throws ParseException {
@@ -176,7 +176,7 @@ public class LancamentoController {
 	 * @param id
 	 * @return ResponseEntity<Response<String>>
 	 */
-	@ApiOperation(value = "Remove lancamento")
+	@ApiOperation(value = "Remove lancamento por ID")
 	@DeleteMapping(value = "/{id}")
 	@PreAuthorize("hasAnyRole('ADMIN')")
 	public ResponseEntity<Response<String>> remover (@PathVariable("id") Long id) {
