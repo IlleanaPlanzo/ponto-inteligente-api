@@ -27,7 +27,6 @@ import com.illeanaplanzo.pontointeligente.api.services.EmpresaService;
 import com.illeanaplanzo.pontointeligente.api.services.FuncionarioService;
 import com.illeanaplanzo.pontointeligente.api.utils.PasswordUtils;
 
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
